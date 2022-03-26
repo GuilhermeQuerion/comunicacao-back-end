@@ -36,7 +36,7 @@ export class AppComponent implements OnInit {
     const produto = this.form.value;
     this.httpClient.post<Produto>(`${urlBase}/produtos`, produto)
       .subscribe(novoProduto => {
-        this.produtos.push(novoProduto);
+        this.produtos = [... this.produtos, novoProduto];
       })
   }
 
@@ -44,7 +44,7 @@ export class AppComponent implements OnInit {
     this.httpClient.delete(`${urlBase}/produtos/${produto.id}`)
       .subscribe(() => {
         const index = this.produtos.indexOf(produto);
-        this.produtos.splice(index, 1);
+        this.produtos = [...this.produtos.slice(0, index), ...this.produtos.slice(index + 1)];
       })
   }
 
