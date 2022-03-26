@@ -24,6 +24,11 @@
       "id": 7,
       "nome": "Misto quente",
       "preco": 5.6
+    },
+    {
+      "nome": "X-Tudo",
+      "preco": 16,
+      "id": 8
     }
   ]
 }
